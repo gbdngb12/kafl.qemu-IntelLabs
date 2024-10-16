@@ -814,7 +814,7 @@ void handle_hypercall_kafl_core_dump(struct kvm_run *run,
 		assert(hypercall_enabled);
 		char crashPath[256] = {0};
 		int32_t pid = (int32_t)getpid();
-		sprintf(crashPath, "/tmp/kAFL_crash_call_stack.log");
+		sprintf(crashPath, "/tmp/kAFL_crash_call_stack_%d", pid);
 		char *crash_dump_buffer = (char*)malloc(256);
 		memset(crash_dump_buffer, 0, 256);
 
